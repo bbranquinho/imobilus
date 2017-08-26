@@ -42,3 +42,4 @@ A seguir é mostrado um exemplos de serviços.
 ```sh
 $ curl -v http://localhost:8080/api/user
 ```
+

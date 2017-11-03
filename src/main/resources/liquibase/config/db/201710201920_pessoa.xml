@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="victor">
+        <createTable tableName="tb_pessoa">
+            <column name="codigo_pessoa" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="nome_pessoa" type="varchar(60)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="telefone_pessoa" type="varchar(14)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="celular_pessoa" type="varchar(14)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="email_pessoa" type="varchar(50)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_email_pessoa" />
+            </column>
+
+            <column name="nascimento_pessoa" type="date">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="cpf_pessoa" type="varchar(11)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_cpf_pessoa" />
+            </column>
+
+            <column name="rg_pessoa" type="varchar(20)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_rg_pessoa" />
+            </column>
+
+            <column name="numeroend_pessoa" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="complementoend_pessoa" type="varchar(50)" />
+
+            <column name="codigo_logradouro" type="int">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="victor">
+
+        <addForeignKeyConstraint baseColumnNames="codigo_logradouro"
+                                 baseTableName="tb_pessoa" constraintName="fk_codigo_logradouro"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_logradouro"
+                                 referencedTableName="tb_logradouro" />
+    </changeSet>
+
+</databaseChangeLog>

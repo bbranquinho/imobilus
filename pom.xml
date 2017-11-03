@@ -20,7 +20,7 @@
         <java.version>1.8</java.version>
         <springfox.swagger.ui.version>2.7.0</springfox.swagger.ui.version>
         <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
-        <postgresql.version>9.4.1212</postgresql.version>
+        <postgresql.version>42.1.4</postgresql.version>
     </properties>
 
     <dependencies>
@@ -34,6 +34,25 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- SPRING BOOT TEST -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- SPRING BOOT INTEGRATION -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+
+        <!-- SPRING BOOT SECURITY -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <!-- POSTGRESQL DRIVER -->
@@ -68,13 +87,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- SPRING BOOT TEST -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 

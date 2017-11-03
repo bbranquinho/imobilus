@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="victor">
+        <createTable tableName="tb_imagem">
+            <column name="codigo_imagem" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="arquivo_imagem" type="blob">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_imovel" type="int">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="victor">
+
+        <addForeignKeyConstraint baseColumnNames="codigo_imovel"
+                             baseTableName="tb_imagem" constraintName="fk_codigo_imovel"
+                             deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                             onUpdate="RESTRICT" referencedColumnNames="codigo_imovel"
+                             referencedTableName="tb_imovel" />
+    </changeSet>
+
+</databaseChangeLog>

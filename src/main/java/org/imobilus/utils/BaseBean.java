@@ -6,6 +6,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public abstract class BaseBean {
 
+    private static final long serialVersionUID = 1L;
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);

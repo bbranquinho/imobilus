@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="victor">
+        <createTable tableName="tb_usuario">
+            <column name="codigo_usuario" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="nome_usuario" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="senha_usuario" type="varchar(45)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_permissao" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_pessoa" type="int">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="victor">
+
+        <addForeignKeyConstraint baseColumnNames="codigo_permissao"
+                                 baseTableName="tb_usuario" constraintName="fk_codigo_permissao"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_permissao"
+                                 referencedTableName="tb_permissao" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_pessoa"
+                                 baseTableName="tb_usuario" constraintName="fk_codigo_pessoa"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_pessoa"
+                                 referencedTableName="tb_pessoa" />
+    </changeSet>
+
+</databaseChangeLog>

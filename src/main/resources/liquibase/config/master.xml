@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <include file="liquibase/config/db/000000000000_initial_schema.xml" />
+    <include file="liquibase/config/db/201710201900_uf.xml" />
+    <include file="liquibase/config/db/201710201905_cidades.xml" />
+    <include file="liquibase/config/db/201710201910_bairros.xml" />
+    <include file="liquibase/config/db/201710201915_logradouro.xml" />
+    <include file="liquibase/config/db/201710201920_pessoa.xml" />
+    <include file="liquibase/config/db/201710201925_caracteristicas.xml" />
+    <include file="liquibase/config/db/201710201930_tipo_negocio.xml" />
+    <include file="liquibase/config/db/201710201935_tipo_imovel.xml" />
+    <include file="liquibase/config/db/201710201940_imovel.xml" />
+    <include file="liquibase/config/db/201710202109_mensagens.xml" />
+    <include file="liquibase/config/db/201710202110_imagens.xml" />
+    <include file="liquibase/config/db/201710202145_permissao.xml" />
+    <include file="liquibase/config/db/201710202148_usuario.xml" />
+
+</databaseChangeLog>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="victor">
+        <createTable tableName="tb_imovel">
+            <column name="codigo_imovel" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="area_construida" type="double">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="area_total" type="double">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="descricao_imovel" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="quartos_imovel" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="suites_imovel" type="int">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="banheiros_imovel" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="vagas_imovel" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="valor_imovel" type="decimal">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="latitude_imovel" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="longitude_imovel" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="numeroend_imovel" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="complementoend_imovel" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="codigo_caracteristicas" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_pessoa" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_tipoNegocio" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_tipoImovel" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_logradouro" type="int">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="victor">
+
+        <addForeignKeyConstraint baseColumnNames="codigo_caracteristicas"
+                                 baseTableName="tb_imovel" constraintName="fk_codigo_caracteristicas"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_caracteristicas"
+                                 referencedTableName="tb_caracteristicas" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_pessoa"
+                                 baseTableName="tb_imovel" constraintName="fk_codigo_pessoa"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_pessoa"
+                                 referencedTableName="tb_pessoa" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_tipoNegocio"
+                                 baseTableName="tb_imovel" constraintName="fk_codigo_tipoNegocio"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_tipoNegociacao"
+                                 referencedTableName="tb_tipo_negocio" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_tipoImovel"
+                                 baseTableName="tb_imovel" constraintName="fk_codigo_tipoImovel"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_tipoImovel"
+                                 referencedTableName="tb_tipo_imovel" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_logradouro"
+                                 baseTableName="tb_imovel" constraintName="fk_codigo_logradouro"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_logradouro"
+                                 referencedTableName="tb_logradouro" />
+
+    </changeSet>
+
+</databaseChangeLog>

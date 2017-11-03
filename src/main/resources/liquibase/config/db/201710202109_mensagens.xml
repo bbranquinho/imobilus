@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="victor">
+        <createTable tableName="tb_mensagens">
+            <column name="codigo_mensagem" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="assunto_mensagem" type="varchar(30)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="corpo_mensagem" type="varchar(1000)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="status_mensagem" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="data_mensagem" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_mensagemPai" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_pRemetente" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="codigo_pDestinatario" type="int">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="victor">
+
+        <addForeignKeyConstraint baseColumnNames="codigo_mensagemPai"
+                                 baseTableName="tb_mensagens" constraintName="fk_codigo_mensagemPai"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_mensagemPai"
+                                 referencedTableName="tb_mensagens" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_pRemetente"
+                                 baseTableName="tb_mensagens" constraintName="fk_codigo_pRemetente"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_pessoa"
+                                 referencedTableName="tb_pessoa" />
+
+        <addForeignKeyConstraint baseColumnNames="codigo_tipoNegocio"
+                                 baseTableName="tb_mensagens" constraintName="fk_codigo_pDestinatario"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="codigo_pessoa"
+                                 referencedTableName="tb_pessoa" />
+
+    </changeSet>
+
+</databaseChangeLog>

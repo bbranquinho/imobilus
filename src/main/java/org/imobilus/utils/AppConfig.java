@@ -33,7 +33,7 @@ public class AppConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .paths(PathSelectors.regex(ResourcePaths.ROOT_PATH + "/.*"))
+                .paths(PathSelectors.regex(ServicePath.ROOT_PATH + "/.*"))
                 .build();
     }
 
